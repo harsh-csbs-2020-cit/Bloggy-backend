@@ -14,7 +14,8 @@ const fs = require("fs");
 const salt = bcrypt.genSaltSync(10);
 const secret = "gjyxtytytruytoobyrtexherxhrdfyjg";
 
-app.use(cors({ credentials: true, origin: "https://bloggy-frontend-iys0.onrender.com/" }));
+//app.use(cors({ credentials: true, origin: "https://bloggy-frontend-iys0.onrender.com/" }));
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use("/uploads", express.static(__dirname + "/uploads"));
