@@ -20,6 +20,14 @@ app.use(express.json());
 app.use(cookieParser());
 app.use("/uploads", express.static(__dirname + "/uploads"));
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://bloggy-frontend-iys0.onrender.com');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  next();
+});
+
 mongoose.connect(
   "mongodb+srv://Harshika:Star123@cluster0.nujrsoa.mongodb.net/?retryWrites=true&w=majority"
 );
